@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            background-image: url("background3.jpg");
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+            -webkit-text-stroke: 1px blue;
+        }
+
+        #myUL {
+  /* Remove default list styling */
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myUL li a {
+  border: 1px solid grey; /* Add a border to all links */
+  margin-top: -1px; /* Prevent double borders */
+  background-color: black; /* Grey background color */
+  padding: 12px; /* Add some padding */
+  text-decoration: none; /* Remove default text underline */
+  font-size: 18px; /* Increase the font-size */
+  color: blue; /* Add a black text color */
+  display: block; /* Make it into a block element to fill the whole list */
+}
+
+#myUL li a:hover:not(.header) {
+  background-color: #eee; /* Add a hover effect to all links, except for headers */
+} </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body 
+>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
+        <a class="navbar-brand" style="color: rgb(191, 255, 161)">Search Results</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            </ul>
+            <form method="POST" action='/search' class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" name="Search" type="search" placeholder="Search"
+                    aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <h1><%= hyper %></h1>
+
+    
+    <div id="result">
+        
+   <p id="searchlist" style="color: transparent;"><%= list%></p>
+   <p id="demo"></p>
+<ul id="myUL" >
+  <li class="elem"><a  onclick="location.href = '/paris';" >Paris</a></li>
+  <li class="elem"><a  onclick="location.href = '/bali';" >Bali</a></li>
+  <li class="elem"><a  onclick="location.href = '/rome';" >Rome</a></li>
+  <li class="elem"><a  onclick="location.href = '/santorini';" >Santorini</a></li>
+  <li class="elem"><a  onclick="location.href = '/annapurna';" >Annapurna</a></li>
+  <li class="elem"><a  onclick="location.href = '/inca';" >Inca</a></li>
+  
+</ul>
+
+
+
+</div>
+
+<script>
+    function myFunction() {
+        
+     const input=document.getElementById('searchlist').textContent;
+     var separated=input.split(',') //S_results
+     var elements=document.getElementsByClassName('elem');
+     
+    for(i=0;i<elements.length;i++){
+       
+        for( j=0;j<separated.length;j++){
+            if(separated[j]!=elements[i].textContent.toLowerCase()){
+                if(j>=separated.length-1){ 
+                    elements[i].style.display="none"
+                }
+                
+            }
+            else{
+                break
+            }
+            
+        }
+
+        
+        
+        
+    }
+    }
+
+     
+    
+     
+
+    
+    </script>
+
+
+
+
+
+
+</body>
+</html>

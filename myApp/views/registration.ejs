@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        body {
+            background-image: url("background2.jpg");
+            background-repeat: no-repeat;
+            background-size: 100%;
+            }
+        h1 {
+            color: white;
+            text-align: center;
+            -webkit-text-stroke: 1px blue;
+        }
+        .cont {
+            position:relative;
+            left:550px;
+            top:50px;
+            color: white;
+            -webkit-text-stroke: 0.5px black;
+        }
+       
+        #demobox1 {
+            background-color: black; 
+  border: none;
+  color: red;
+  
+  padding: 8 px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  position:relative;
+  left:500px;
+ top:100px;
+ width: fit-content;
+ font-family: 'Courier New', Courier, monospace;
+}
+
+
+.alert {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+  width: fit-content;
+  position:relative;
+  left:450px;
+ top:50px;
+ font-family: 'Courier New', Courier, monospace;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  
+}
+
+.closebtn:hover {
+  color: black;
+}
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registration</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+</head>
+
+<body onload="myFunction()">
+    <div class="container">
+        <h1>Registration</h1>
+    </div>
+    <div class="cont">
+        <form method='post' action='/registeration'>
+            Username: <br>
+            <input type="text" id="user" name="username"> <br>
+            Password: <br>
+            <input type="password" id="password" name="password"> <br> <br>
+            <input type="submit" id="simple_click" class="btn btn-secondary" value="registration"> <br>
+        </form>
+    </div>
+    <div id="1234" class="hola">
+
+    </div>
+   
+    <div class="alert" id="mydiv">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+      <%= title %>
+      </div>
+
+    
+
+    <script>
+      function myFunction(){
+        var expect="<%= title2 %>";
+        var elm=document.getElementById('mydiv')
+        
+        
+        if(expect==1){
+            
+            elm.style.backgroundColor="#0096FF"
+
+            
+        }
+        var p = document.createElement('h1')
+        p.innerHTML= expect;
+        document.getElementById('1234').appendChild(p);
+        
+        
+      }
+      
+    </script>
+
+    
+        
+
+   
+
+    
+</body>
+
+</html>
